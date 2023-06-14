@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping("/cam")
@@ -32,7 +33,8 @@ public class CamController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Cam add(@RequestBody Cam cam){
+    public Cam add(@Valid @RequestBody Cam cam){
+
         return crudCamService.saveCam(cam);
     }
 
